@@ -60,7 +60,7 @@ def send_image(image_path):
             result = response.json()
             print("✅ Success!")
             print(f"   Filename: {result.get('filename')}")
-            print(f"   Extracted text: {result.get('text')}")
+            print(f"   Extracted text: {result}")
             print(f"   ⏱️  Processing time: {elapsed_time:.2f} seconds")
             return result
         else:
