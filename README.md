@@ -372,6 +372,14 @@ To run in debug mode, edit [app/config/settings.py](app/config/settings.py):
 DEBUG = True
 ```
 
+Benchmarking:
+```bash
+# test with sequencial order: only runtime will be shown
+./batch_test.sh seq
+# test with parallel order: output will be written to tmp.log
+./batch_test.sh
+```
+
 ## License
 
 [Your License Here]
