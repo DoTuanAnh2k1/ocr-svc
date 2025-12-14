@@ -49,7 +49,9 @@ def send_image(image_path):
         
         # Open and send the image file
         with open(image_path, 'rb') as image_file:
-            files = {'image': image_file}
+            image_data = image_file.read()  # read file content into bytes
+            files = {'image': ('filename.jpg', image_data)}
+            # files = {'image': image_file}
             response = requests.post(IMAGE_TO_TEXT_ENDPOINT, files=files, timeout=300)
         
         # Calculate elapsed time
@@ -93,8 +95,14 @@ def main():
         sys.exit(1)
     
     print()
+    print("2. Checking filepath")
+    if not os.path.exists(sys.argv[1]):
+        print("\n❌ Path not found: ", sys.argv[1])
+        sys.exit(1)
+    else:
+        print("✅ Path exist: ", sys.argv[1])
     
-    image_path = "E:\\Data\\Python\\ocr_service\\client\\test.jpg"
+    image_path = sys.argv[1]
     
     # Send image to server
     print()
