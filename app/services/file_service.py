@@ -1,5 +1,6 @@
 import os
 import time
+import uuid
 from typing import List, Set
 
 
@@ -33,7 +34,8 @@ class FileService:
         """
         name, ext = os.path.splitext(original_filename)
         timestamp = int(time.time())
-        return f"{name}_{timestamp}{ext}"
+        crypt = str(uuid.uuid4()).replace("-", "")
+        return f"{name}_{timestamp}_{crypt}{ext}"
 
     @staticmethod
     def delete_file(filepath: str) -> bool:

@@ -24,4 +24,4 @@ if __name__ == '__main__':
     print("\n🎉 Server is ready to accept requests!\n")
 
     # Run server
-    app.run(host=Config.HOST, port=Config.PORT, debug=Config.DEBUG)
+    app.run(host=Config.HOST, port=Config.PORT, debug=Config.DEBUG, threaded=True)
