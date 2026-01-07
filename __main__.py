@@ -1,6 +1,7 @@
 from app import create_app
 from app.services.ai_model_service import AIModelService
 from app.config.settings import Config
+import sys
 
 
 if __name__ == '__main__':
@@ -12,6 +13,10 @@ if __name__ == '__main__':
     print("\n📦 Loading AI model (this may take a while)...")
     AIModelService.initialize_model()
     print("✅ Model loaded successfully!\n")
+    
+    if sys.argv and sys.argv[1] == 'warmup':
+        print("🔥 Warmup complete. Exiting as per 'warmup' argument.")
+        sys.exit(0)
 
     # Create Flask app
     app = create_app()
