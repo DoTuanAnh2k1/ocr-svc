@@ -14,9 +14,10 @@ if __name__ == '__main__':
     AIModelService.initialize_model()
     print("✅ Model loaded successfully!\n")
     
-    if sys.argv and sys.argv[1] == 'warmup':
-        print("🔥 Warmup complete. Exiting as per 'warmup' argument.")
-        sys.exit(0)
+    if len(sys.argv) > 1: 
+        if sys.argv[1] == 'warmup':
+            print("🔥 Warmup complete. Exiting as per 'warmup' argument.")
+            sys.exit(0)
 
     # Create Flask app
     app = create_app()
